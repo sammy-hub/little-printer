@@ -1,0 +1,353 @@
+:root {
+  --printer-width: 384px; /* 58mm @ 203dpi. Change to 576px for 80mm. */
+  --bg: #f7f3ec;
+  --ink: #222222;
+  --accent: #ff8a5c;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  min-height: 100vh;
+}
+
+/* App layout */
+
+.app-shell {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 12px 24px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.app-title {
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.app-title span {
+  font-size: 18px;
+}
+
+.app-subtitle {
+  font-size: 11px;
+  color: #666666;
+}
+
+.icon-button {
+  border-radius: 999px;
+  border: 1px solid #d0c5bb;
+  background: #fffdf9;
+  padding: 6px 10px;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.icon-button:active {
+  transform: translateY(1px);
+}
+
+/* Print root */
+
+#print-root {
+  max-width: var(--printer-width);
+  margin: 0 auto;
+  padding: 12px 6px;
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  font-size: 12px;
+  line-height: 1.3;
+  color: #000;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2d9cf;
+}
+
+/* Strip header/footer */
+
+.strip-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.strip-header-title {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.strip-header-date {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.strip-header-greeting {
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.strip-footer {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 10px;
+  color: #555;
+}
+
+/* Sections */
+
+.section-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  margin: 8px 0 2px;
+}
+
+.divider {
+  text-align: center;
+  font-size: 10px;
+  margin: 2px 0 4px;
+}
+
+.news-item,
+.reddit-item {
+  margin-bottom: 4px;
+}
+
+.news-item-title,
+.reddit-item-title {
+  font-size: 12px;
+}
+
+.news-item-meta,
+.reddit-item-meta {
+  font-size: 10px;
+  color: #555;
+}
+
+/* Comics */
+
+.comic {
+  margin: 4px 0;
+}
+
+.comic img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+/* Quote */
+
+.quote-text {
+  font-style: italic;
+  margin-bottom: 2px;
+}
+
+.quote-author {
+  font-size: 10px;
+  text-align: right;
+}
+
+/* Puzzle */
+
+.puzzle-title {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.puzzle-content {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  white-space: pre-wrap;
+  font-size: 11px;
+}
+
+/* Controls */
+
+.controls {
+  margin-top: 12px;
+}
+
+.controls-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.print-button {
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid #c9b9aa;
+  background: #fffdf9;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.print-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.helper-text {
+  font-size: 11px;
+  color: #666;
+}
+
+/* Settings panel */
+
+.settings-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 50;
+}
+
+.settings-panel {
+  width: 100%;
+  max-width: 480px;
+  max-height: 90vh;
+  background: #fffdf9;
+  border-radius: 14px 14px 0 0;
+  padding: 12px 12px 18px;
+  overflow: auto;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.settings-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.settings-section {
+  margin-bottom: 10px;
+}
+
+.settings-section-title {
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.settings-row-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.settings-textarea {
+  width: 100%;
+  min-height: 60px;
+  font-size: 11px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #d3c6b9;
+  resize: vertical;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.radio-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.radio-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid #d3c6b9;
+  font-size: 11px;
+  background: #fff;
+}
+
+/* No-print controls */
+
+.no-print {
+  /* Hidden only in print media; visible on screen */
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: #ffffff !important;
+  }
+
+  @page {
+    size: 58mm auto;
+    margin: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  #print-root {
+    margin: 0;
+    padding: 8px 4px;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+  }
+
+  .app-shell {
+    padding: 0;
+    margin: 0;
+    max-width: none;
+  }
+}
